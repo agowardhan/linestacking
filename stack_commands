@@ -1,0 +1,119 @@
+
+# id       lamb_rest       lamb_obs   velocity    channel
+# -----------------------------------------------------------
+# HCN      177.2612        80.683      4633       137
+# HCO+     178.3750        81.190      2779       267
+# HNC      181.3248        82.533     -2132       611
+# HC3N     181.9449        82.815     -3166       683
+# H2O      183.3101        83.436     -5436       842
+ 
+
+# a,b,c,d,e  = 137,267,611,683,842 
+
+# lines centres at 60/35. 
+# averaging velocity 20 channels = +20, -20, +10, -10, + - 15 channels 
+
+# chan1 chan2 = 90 110 
+# chan1 chan2 = 85 115 
+# chan1 chan2 = 80 120 
+
+# chan1 chan2 = 25 45 
+# chan1 chan2 15 55 
+# chan1 chan2 5 65 
+
+# run stack_v7.py 
+
+#  run stack_v8.py 
+
+from stack_v8 import uvstack,imstack
+
+uvstack('hcn_uv.fits', file_out = 'hcn_uv_ab.fits',   ln = [137,267], width=200, clob=True)
+uvstack('hcn_uv.fits', file_out = 'hcn_uv_ac.fits',   ln = [137,611], width=200, clob=True)
+uvstack('hcn_uv.fits', file_out = 'hcn_uv_ad.fits',   ln = [137,683], width=200, clob=True)
+uvstack('hcn_uv.fits', file_out = 'hcn_uv_ae.fits',   ln = [137,842], width=150, clob=True) 
+uvstack('hcn_uv.fits', file_out = 'hcn_uv_bc.fits',   ln = [267,611], width=200, clob=True)
+uvstack('hcn_uv.fits', file_out = 'hcn_uv_bd.fits',   ln = [267,683], width=200, clob=True)
+uvstack('hcn_uv.fits', file_out = 'hcn_uv_be.fits',   ln = [267,842], width=150, clob=True) 
+uvstack('hcn_uv.fits', file_out = 'hcn_uv_cd.fits',   ln = [611,683], width=70, clob=True)
+uvstack('hcn_uv.fits', file_out = 'hcn_uv_ce.fits',   ln = [611,842], width=150, clob=True) # 
+uvstack('hcn_uv.fits', file_out = 'hcn_uv_de.fits',   ln = [683,842], width=150, clob=True) # 
+uvstack('hcn_uv.fits', file_out = 'hcn_uv_abc.fits',  ln = [137,267,611], width=200, clob=True)
+uvstack('hcn_uv.fits', file_out = 'hcn_uv_abd.fits',  ln = [137,267,683], width=200, clob=True)
+uvstack('hcn_uv.fits', file_out = 'hcn_uv_abe.fits',  ln = [137,267,842], width=150, clob=True) # 
+uvstack('hcn_uv.fits', file_out = 'hcn_uv_acd.fits',  ln = [137,611,683], width=70, clob=True)
+uvstack('hcn_uv.fits', file_out = 'hcn_uv_ace.fits',  ln = [137,611,842], width=150, clob=True) # 
+uvstack('hcn_uv.fits', file_out = 'hcn_uv_ade.fits',  ln = [137,683,842], width=150, clob=True) # 
+uvstack('hcn_uv.fits', file_out = 'hcn_uv_bce.fits',  ln = [267,611,842], width=150, clob=True) # 
+uvstack('hcn_uv.fits', file_out = 'hcn_uv_bcd.fits',  ln = [267,611,683], width=70, clob=True)
+uvstack('hcn_uv.fits', file_out = 'hcn_uv_bde.fits',  ln = [267,683,842], width=150, clob=True) # 
+uvstack('hcn_uv.fits', file_out = 'hcn_uv_cde.fits',  ln = [611,683,842], width=70, clob=True)
+uvstack('hcn_uv.fits', file_out = 'hcn_uv_abcd.fits', ln = [137,267,611,683], width=70, clob=True)
+uvstack('hcn_uv.fits', file_out = 'hcn_uv_abce.fits', ln = [137,267,611,842], width=150, clob=True) # 
+uvstack('hcn_uv.fits', file_out = 'hcn_uv_abde.fits', ln = [137,267,683,842], width=150, clob=True) # 
+uvstack('hcn_uv.fits', file_out = 'hcn_uv_acde.fits', ln = [137,611,683,842], width=70, clob=True)
+uvstack('hcn_uv.fits', file_out = 'hcn_uv_bcde.fits', ln = [267,611,683,842], width=70, clob=True)
+uvstack('hcn_uv.fits', file_out = 'hcn_uv_abcde.fits',ln = [137,267,611,683,842], width=70, clob=True)
+
+# stacking width = 70 when lines at 611, 683 are stacked to avoid overlap between lines. 
+
+imstack('hcn_im.fits', file_out = 'hcn_im_ab.fits',   ln = [137,267], width=200, clob=True)
+imstack('hcn_im.fits', file_out = 'hcn_im_ac.fits',   ln = [137,611], width=200, clob=True)
+imstack('hcn_im.fits', file_out = 'hcn_im_ad.fits',   ln = [137,683], width=200, clob=True)
+imstack('hcn_im.fits', file_out = 'hcn_im_ae.fits',   ln = [137,842], width=150, clob=True) 
+imstack('hcn_im.fits', file_out = 'hcn_im_bc.fits',   ln = [267,611], width=200, clob=True)
+imstack('hcn_im.fits', file_out = 'hcn_im_bd.fits',   ln = [267,683], width=200, clob=True)
+imstack('hcn_im.fits', file_out = 'hcn_im_be.fits',   ln = [267,842], width=150, clob=True) 
+imstack('hcn_im.fits', file_out = 'hcn_im_cd.fits',   ln = [611,683], width=70, clob=True)
+imstack('hcn_im.fits', file_out = 'hcn_im_ce.fits',   ln = [611,842], width=150, clob=True) 
+imstack('hcn_im.fits', file_out = 'hcn_im_de.fits',   ln = [683,842], width=150, clob=True) 
+imstack('hcn_im.fits', file_out = 'hcn_im_abc.fits',  ln = [137,267,611], width=200, clob=True)
+imstack('hcn_im.fits', file_out = 'hcn_im_abd.fits',  ln = [137,267,683], width=200, clob=True)
+imstack('hcn_im.fits', file_out = 'hcn_im_abe.fits',  ln = [137,267,842], width=150, clob=True) 
+imstack('hcn_im.fits', file_out = 'hcn_im_acd.fits',  ln = [137,611,683], width=70, clob=True)
+imstack('hcn_im.fits', file_out = 'hcn_im_ace.fits',  ln = [137,611,842], width=150, clob=True) 
+imstack('hcn_im.fits', file_out = 'hcn_im_ade.fits',  ln = [137,683,842], width=150, clob=True) 
+imstack('hcn_im.fits', file_out = 'hcn_im_bce.fits',  ln = [267,611,842], width=150, clob=True) 
+imstack('hcn_im.fits', file_out = 'hcn_im_bcd.fits',  ln = [267,611,683], width=70, clob=True)
+imstack('hcn_im.fits', file_out = 'hcn_im_bde.fits',  ln = [267,683,842], width=150, clob=True) 
+imstack('hcn_im.fits', file_out = 'hcn_im_cde.fits',  ln = [611,683,842], width=70, clob=True)
+imstack('hcn_im.fits', file_out = 'hcn_im_abcd.fits', ln = [137,267,611,683], width=70, clob=True)
+imstack('hcn_im.fits', file_out = 'hcn_im_abce.fits', ln = [137,267,611,842], width=150, clob=True) 
+imstack('hcn_im.fits', file_out = 'hcn_im_abde.fits', ln = [137,267,683,842], width=150, clob=True) 
+imstack('hcn_im.fits', file_out = 'hcn_im_acde.fits', ln = [137,611,683,842], width=70, clob=True)
+imstack('hcn_im.fits', file_out = 'hcn_im_bcde.fits', ln = [267,611,683,842], width=70, clob=True)
+imstack('hcn_im.fits', file_out = 'hcn_im_abcde.fits',ln = [137,267,611,683,842], width=70, clob=True)
+
+
+# Width of CO line : ~ 60 channels = 60*5.58 = 334 km/s
+
+# Check that there are no line overlaps. 
+
+uvstack('hcn_uv.fits', file_out = 'hcn_tr1_ab.fits',   ln = [77,207], width=140, clob=True)
+uvstack('hcn_uv.fits', file_out = 'hcn_tr1_ac.fits',   ln = [77,551], width=140, clob=True)
+uvstack('hcn_uv.fits', file_out = 'hcn_tr1_ad.fits',   ln = [77,623], width=140, clob=True)
+uvstack('hcn_uv.fits', file_out = 'hcn_tr1_ae.fits',   ln = [77,782], width=140, clob=True) 
+uvstack('hcn_uv.fits', file_out = 'hcn_tr1_bc.fits',   ln = [207,551], width=140, clob=True)
+uvstack('hcn_uv.fits', file_out = 'hcn_tr1_bd.fits',   ln = [207,623], width=140, clob=True)
+uvstack('hcn_uv.fits', file_out = 'hcn_tr1_be.fits',   ln = [207,782], width=140, clob=True) 
+uvstack('hcn_uv.fits', file_out = 'hcn_tr1_ce.fits',   ln = [551,782], width=140, clob=True) 
+uvstack('hcn_uv.fits', file_out = 'hcn_tr1_de.fits',   ln = [623,782], width=140, clob=True) 
+uvstack('hcn_uv.fits', file_out = 'hcn_tr1_abc.fits',  ln = [77,207,551], width=140, clob=True)
+uvstack('hcn_uv.fits', file_out = 'hcn_tr1_abd.fits',  ln = [77,207,623], width=140, clob=True)
+uvstack('hcn_uv.fits', file_out = 'hcn_tr1_abe.fits',  ln = [77,207,782], width=140, clob=True) 
+uvstack('hcn_uv.fits', file_out = 'hcn_tr1_ace.fits',  ln = [77,551,782], width=140, clob=True) 
+uvstack('hcn_uv.fits', file_out = 'hcn_tr1_ade.fits',  ln = [77,623,782], width=140, clob=True)  
+uvstack('hcn_uv.fits', file_out = 'hcn_tr1_bce.fits',  ln = [207,551,782], width=140, clob=True)  
+uvstack('hcn_uv.fits', file_out = 'hcn_tr1_bde.fits',  ln = [207,623,782], width=140, clob=True)  
+uvstack('hcn_uv.fits', file_out = 'hcn_tr1_abce.fits', ln = [77,207,551,782], width=140, clob=True) 
+uvstack('hcn_uv.fits', file_out = 'hcn_tr1_abde.fits', ln = [77,207,623,782], width=140, clob=True)  
+
+uvstack('hcn_uv.fits', file_out = 'hcn_tr1_acde.fits', ln = [77,551,623,782], width=70, clob=True)
+uvstack('hcn_uv.fits', file_out = 'hcn_tr1_bcde.fits', ln = [207,551,623,782], width=70, clob=True)
+uvstack('hcn_uv.fits', file_out = 'hcn_tr1_abcde.fits',ln = [77,207,551,623,782], width=70, clob=True)
+uvstack('hcn_uv.fits', file_out = 'hcn_tr1_cd.fits',   ln = [551,623], width=70, clob=True)
+uvstack('hcn_uv.fits', file_out = 'hcn_tr1_acd.fits',  ln = [77,551,623], width=70, clob=True)
+uvstack('hcn_uv.fits', file_out = 'hcn_tr1_bcd.fits',  ln = [207,551,623], width=70, clob=True)
+uvstack('hcn_uv.fits', file_out = 'hcn_tr1_cde.fits',  ln = [551,623,782], width=70, clob=True)
+uvstack('hcn_uv.fits', file_out = 'hcn_tr1_abcd.fits', ln = [77,207,551,623], width=70, clob=True)
+
+
